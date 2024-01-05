@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="create-zip" name="NMF">
+<property name="dirOffset" value="../" />
+<import file="${dirOffset}/commontargets.xml" />
+
+
+<target name="create-zip" depends="init">
+	<antcall target="prezip"/>
+	<zip destfile="${dest.dir}/${ant.project.name}.zip" whenempty="fail" defaultexcludes="true">
+		<fileset dir=".">
+		  <exclude name="*.doc"/>
+		  <exclude name="build.xml"/>
+		</fileset>
+	</zip>
+         <antcall target="postzip"/>
+</target>
+
+
+
+</project>
